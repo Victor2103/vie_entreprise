@@ -16,6 +16,6 @@ x = requests.post(
 
 print(x.text)
 
-data=pd.read_csv("my_data/if155.xls")
+data = pd.read_excel("my_data/if155.xls")
 
 print(data)
