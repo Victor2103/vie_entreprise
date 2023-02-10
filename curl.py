@@ -2,6 +2,7 @@ import requests
 import os
 from dotenv import load_dotenv
 import pandas as pd
+import json
 load_dotenv(".env")
 
 
@@ -19,3 +20,14 @@ print(x.text)
 data = pd.read_excel("my_data/if155.xls")
 
 print(data)
+
+y = requests.get("https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=Siren&facet=publicationavis&facet=publicationavis_facette&facet=typeavis&facet=typeavis_lib&facet=familleavis&facet=familleavis_lib&facet=numerodepartement&facet=departement_nom_officiel&refine.familleavis_lib=Ventes+et+cessions")
+# print(y.text)
+
+# Transform into a json file
+data = y.json()
+
+print(data)
+
+with open("test.json", "w") as f:
+    json.dump(data, f)
