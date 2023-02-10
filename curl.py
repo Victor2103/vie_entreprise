@@ -19,7 +19,7 @@ print(x.text)
 
 data = pd.read_excel("my_data/if155.xls")
 
-print(data)
+#print(data)
 
 y = requests.get("https://bodacc-datadila.opendatasoft.com/api/records/1.0/search/?dataset=annonces-commerciales&q=Siren&facet=publicationavis&facet=publicationavis_facette&facet=typeavis&facet=typeavis_lib&facet=familleavis&facet=familleavis_lib&facet=numerodepartement&facet=departement_nom_officiel&refine.familleavis_lib=Ventes+et+cessions")
 # print(y.text)
@@ -30,7 +30,9 @@ z = requests.get('https://bodacc-datadila.opendatasoft.com/api/records/1.0/searc
 # Transform into a json file
 data = z.json()
 
-print(data["records"][1]["fields"])
+#print(data["records"][1]["fields"]["listepersonnes"])
+
+
 
 with open("test.json", "w") as f:
     json.dump(data, f)
