@@ -2,7 +2,8 @@ import requests
 import json
 
 headers = {'Accept': 'application/json',
-           'Authorization': 'Bearer de96c85b-a5b6-3ceb-a32c-4c0bdfc87e09'}
+           'Authorization': 'Bearer de96c85b-a5b6-3ceb-a32c-4c0bdfc87e09',
+           'nombre': '100'}
 
 url = 'https://api.insee.fr/entreprises/sirene/V3/siren'
 
