@@ -1,8 +1,11 @@
 import requests
 import json
+import os
+from dotenv import load_dotenv
+load_dotenv(".env")
 
 headers = {'Accept': 'application/json',
-           'Authorization': 'Bearer de96c85b-a5b6-3ceb-a32c-4c0bdfc87e09',
+           'Authorization': f'Bearer {os.getenv("BEARER_TOKEN")}',
            'nombre': '100'}
 
 url = 'https://api.insee.fr/entreprises/sirene/V3/siren'
