@@ -1,6 +1,6 @@
 import json
 
-with open("my_data/insee.json", "r") as f:
+with open("my_data/insee_9.json", "r") as f:
     data = json.load(f)
 
 """
@@ -10,5 +10,7 @@ siren=tmp['personne']['numeroImmatriculation']['numeroIdentification']
 
 print(siren)
 """
-
-print(data["unitesLegales"][0]['siren'])
+for i in data["unitesLegales"]:
+    if i["categorieEntreprise"]:
+        print(i["siren"])
+# print(data["unitesLegales"][0]['siren'])
