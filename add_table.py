@@ -20,7 +20,7 @@ command = """
             number_legal_units INTEGER NOT NULL ,
             date_creation TIMESTAMPTZ NOT NULL ,
             categorie_entreprise VARCHAR(255) NULL ,
-            annee_categorie_entreprise TIMESTAMPTZ NULL 
+            annee_categorie_entreprise VARCHAR(4) NULL 
         );
         """
 
