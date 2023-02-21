@@ -28,7 +28,7 @@ command = """
 command2 = """
         CREATE TABLE legal_units (
             siren VARCHAR(9) NOT NULL ,
-            siret VARCHAR(14) NOT NULL ,
+            siret VARCHAR(14) NULL ,
             administrative_state VARCHAR(1) NOT NULL,
             change_state BOOLEAN NOT NULL ,
             start_date TIMESTAMPTZ NOT NULL ,
