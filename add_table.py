@@ -24,8 +24,25 @@ command = """
         );
         """
 
+# The command to create the table of all legals units for the brand.
+command2 = """
+        CREATE TABLE legal_units (
+            siren VARCHAR(9) NOT NULL ,
+            siret VARCHAR(14) NOT NULL ,
+            administrative_state VARCHAR(1) NOT NULL,
+            change_state BOOLEAN NOT NULL ,
+            start_date TIMESTAMPTZ NOT NULL ,
+            end_date TIMESTAMPTZ NOT NULL, 
+            nomenclature_activite VARCHAR(255) NOT NULL ,
+            changement_activite BOOLEAN NOT NULL 
+        )
+"""
+
 # Add the table to the database
 cursor.execute(command)
+
+# Add the other table to the database
+cursor.execute(command2)
 
 # Save in the database
 connection.commit()
