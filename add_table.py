@@ -31,7 +31,7 @@ command2 = """
             siret VARCHAR(14) NULL ,
             administrative_state VARCHAR(1) NULL,
             change_state BOOLEAN NOT NULL ,
-            start_date TIMESTAMPTZ NOT NULL ,
+            start_date TIMESTAMPTZ NULL ,
             end_date TIMESTAMPTZ NULL, 
             nomenclature_activite VARCHAR(255) NULL ,
             changement_activite BOOLEAN NOT NULL 
