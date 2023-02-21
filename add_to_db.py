@@ -27,7 +27,7 @@ for i in range(0, 40):
                 "INSERT INTO brand (siren,number_legal_units,date_creation) VALUES (%s,%s,%s); ", (j["siren"], j["nombrePeriodesUniteLegale"], j["dateCreationUniteLegale"]))
 
 
-print(f"{cpt} have been added ! ")
+print(f"{cpt} brands have been added ! ")
 
 
 # This is for make the data saved in the database.
