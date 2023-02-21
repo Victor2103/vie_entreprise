@@ -33,7 +33,7 @@ command2 = """
             change_state BOOLEAN NOT NULL ,
             start_date TIMESTAMPTZ NOT NULL ,
             end_date TIMESTAMPTZ NULL, 
-            nomenclature_activite VARCHAR(255) NOT NULL ,
+            nomenclature_activite VARCHAR(255) NULL ,
             changement_activite BOOLEAN NOT NULL 
         )
 """
