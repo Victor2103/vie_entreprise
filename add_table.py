@@ -29,7 +29,7 @@ command2 = """
         CREATE TABLE legal_units (
             siren VARCHAR(9) NOT NULL ,
             siret VARCHAR(14) NULL ,
-            administrative_state VARCHAR(1) NOT NULL,
+            administrative_state VARCHAR(1) NULL,
             change_state BOOLEAN NOT NULL ,
             start_date TIMESTAMPTZ NOT NULL ,
             end_date TIMESTAMPTZ NULL, 
