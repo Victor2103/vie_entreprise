@@ -29,14 +29,15 @@ for i in range(len(sirens)):
     for j in range(len(request)):
         if request[j][0] != None and request[j][1] != None:
             # print(request[i][1]-request[i][0])
-            tmp = (request[j][2], request[j][1]-request[j][0], request[j][3])
+            tmp = (request[j][2], (request[j][1] -
+                   request[j][0]).days, request[j][3])
             tab.append(tmp)
-
 # print(tab)
 
 create_diff = """ CREATE TABLE difference (
+    id SERIAL ,
     siren VARCHAR(9) NOT NULL ,
-    diff INTERVAL day  ,
+    diff INTEGER NOT NULL  ,
     change_state BOOLEAN NOT NULL
 ) ;
 
