@@ -23,20 +23,21 @@ cursor = connection.cursor()
 tab = []
 for i in range(len(sirens)):
     cursor.execute(
-        "SELECT start_date,end_date,siren FROM legal_units WHERE siren=%s ;", [sirens[i][0]])
+        "SELECT start_date,end_date,siren,change_state FROM legal_units WHERE siren=%s ;", [sirens[i][0]])
     # print(cursor.fetchall())
     request = cursor.fetchall()
     for j in range(len(request)):
         if request[j][0] != None and request[j][1] != None:
             # print(request[i][1]-request[i][0])
-            tmp = (request[j][2], request[j][1]-request[j][0])
+            tmp = (request[j][2], request[j][1]-request[j][0], request[j][3])
             tab.append(tmp)
 
 # print(tab)
 
 create_diff = """ CREATE TABLE difference (
     siren VARCHAR(9) NOT NULL ,
-    diff INTERVAL day  
+    diff INTERVAL day  ,
+    change_state BOOLEAN NOT NULL
 ) ;
 
 """
@@ -44,7 +45,7 @@ cursor.execute(create_diff)
 
 for i in range(len(tab)):
     cursor.execute(
-        "INSERT INTO difference (siren,diff) VALUES (%s,%s) ", tab[i])
+        "INSERT INTO difference (siren,diff,change_state) VALUES (%s,%s,%s) ", tab[i])
 
 connection.commit()
 
