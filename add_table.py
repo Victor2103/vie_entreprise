@@ -16,6 +16,7 @@ cursor = connection.cursor()
 # The command to create the table brand with all the infos of the brand
 command = """
         CREATE TABLE brand (
+            id serial ,
             siren VARCHAR(9) NOT NULL ,
             number_legal_units INTEGER NOT NULL ,
             date_creation TIMESTAMPTZ NOT NULL ,
