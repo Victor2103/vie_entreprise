@@ -25,7 +25,7 @@ for i in range(10):
     inf = int(f"{i}00")
     sup = int(f"{i+1}00")
     cursor.execute(
-        "SELECT count(diff) FROM difference WHERE diff > %s AND diff < %s AND change_state='t' ;", (inf, sup))
+        "SELECT count(diff) FROM difference WHERE diff >= %s AND diff < %s AND change_state='t' ;", (inf, sup))
     count = cursor.fetchone()
     cursor.execute("INSERT INTO stat_difference (interval,value) VALUES (%s,%s)",
                    (f"{inf} - {sup}", count[0]))
@@ -35,14 +35,14 @@ for i in range(10):
     if i == 9:
         sup = 2000
         cursor.execute(
-            "SELECT count(diff) FROM difference WHERE diff > %s AND diff < %s AND change_state='t' ;", (inf, sup))
+            "SELECT count(diff) FROM difference WHERE diff >= %s AND diff < %s AND change_state='t' ;", (inf, sup))
         count = cursor.fetchone()
         cursor.execute("INSERT INTO stat_difference (interval,value) VALUES (%s,%s)",
                        (f"{inf} - {sup}", count[0]))
     else:
         sup = int(f"1{i+1}00")
         cursor.execute(
-            "SELECT count(diff) FROM difference WHERE diff > %s AND diff < %s AND change_state='t' ;", (inf, sup))
+            "SELECT count(diff) FROM difference WHERE diff >= %s AND diff < %s AND change_state='t' ;", (inf, sup))
         count = cursor.fetchone()
         cursor.execute("INSERT INTO stat_difference (interval,value) VALUES (%s,%s)",
                        (f"{inf} - {sup}", count[0]))
