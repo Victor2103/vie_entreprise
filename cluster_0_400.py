@@ -26,7 +26,7 @@ for i in range(40):
     inf += 10
     sup += 10
     cursor.execute(
-        "SELECT count(diff) FROM difference WHERE diff > %s AND diff < %s AND change_state='t' ;", (inf, sup))
+        "SELECT count(diff) FROM difference WHERE diff >= %s AND diff < %s AND change_state='t' ;", (inf, sup))
     count = cursor.fetchone()
     cursor.execute("INSERT INTO stat_0_400 (interval,value) VALUES (%s,%s)",
                    (f"{inf} - {sup}", count[0]))
